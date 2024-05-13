@@ -14,16 +14,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(SiswasTableSeeder::class);
-        // $this->call(BarangsTableSeeder::class);
-        // // $this->call(PostsTableSeeder::class);
-        // $this->call(PenggunasTableSeeder::class);
-        // $this->call(TeleponsTableSeeder::class);
-        // $this->call(MereksTableSeeder::class);
-        // $this->call(ProduksTableSeeder::class);
-        $this->call(Barang2sTableSeeder::class);
+        $this->call(SiswasTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
+        $this->call(PenggunasTableSeeder::class);
+        $this->call(TeleponsTableSeeder::class);
+        $this->call(MereksTableSeeder::class);
+        $this->call(ProduksTableSeeder::class);
         $this->call(PembelisTableSeeder::class);
+        $this->call(BarangsTableSeeder::class);
         $this->call(TransaksisTableSeeder::class);
+        
         
         
 

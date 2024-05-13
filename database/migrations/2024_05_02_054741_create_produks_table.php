@@ -20,10 +20,6 @@ return new class extends Migration
             $table->string('tanggal_produksi');
             $table->unsignedBigInteger('id_merek');
             $table->timestamps();
-
-            
-            $table->foreign('id_merek')->references('id')->on('mereks')->onDelete('cascade');
-
         });
     }
 

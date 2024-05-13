@@ -10,19 +10,21 @@
 
 <body>
     <center>
-        <h3>BARANG</h3>
+        <h3>Data Tabel barang</h3>
         <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Nama</th>
-                <th>Jumlah</th>
+                <th>Nama Barang</th>
+                <th>Harga</th>
+                <th>Stok</th>
             </tr>
             @php $id = 1; @endphp
-            @foreach ($barang as $data)
+            @foreach ($data as $barang)
                 <tr>
                     <td>{{ $id++ }} </td>
-                    <td>{{ $data->nama }} </td>
-                    <td>{{ $data->jumlah }} </td>
+                    <td>{{ $barang->nama_barang }} </td>
+                    <td>{{ $barang->harga }}</td>
+                    <td>{{ $barang->stok }}</td>
                 </tr>
             @endforeach
         </table>

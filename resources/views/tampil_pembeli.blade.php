@@ -10,7 +10,7 @@
 
 <body>
     <center>
-        <h3>BARANG</h3>
+        <h3>Data Tabel barang</h3>
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -18,11 +18,11 @@
                 <th>Jenis Kelamin</th>
             </tr>
             @php $id = 1; @endphp
-            @foreach ($pembeli as $data)
+            @foreach ($data as $pembeli)
                 <tr>
                     <td>{{ $id++ }} </td>
-                    <td>{{ $data->nama_pembeli }} </td>
-                    <td>{{ $data->jenis_kelamin }} </td>
+                    <td>{{ $pembeli->nama_pembeli }} </td>
+                    <td>{{ $pembeli->jenis_kelamin }}</td>
                 </tr>
             @endforeach
         </table>

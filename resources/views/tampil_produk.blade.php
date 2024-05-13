@@ -18,7 +18,6 @@
                 <th>Jumlah</th>
                 <th>Tanggal Produksi</th>
                 <th>Nama Merek</th>
-                <th>Id Merek</th>
             </tr>
             @php $id = 1; @endphp
             @foreach ($produk as $data)
@@ -27,8 +26,7 @@
                     <td>{{ $data->nama_produk }} </td>
                     <td>{{ $data->jumlah }} </td>
                     <td>{{ $data->tanggal_produksi }} </td>
-                    <td>{{ $data->merek }} </td>
-                    <td>{{ $data->id_merek }} </td>
+                    <td>{{ $data->merek->nama_merek}} </td>
                 </tr>
             @endforeach
         </table>

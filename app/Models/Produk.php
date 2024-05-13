@@ -13,7 +13,7 @@ class Produk extends Model
     public $timestamps = true;
 
     public function merek(){
-        return $this->belongsTo(Merek::class);
+        return $this->belongsTo(Merek::class,'id_merek');
     }
 
 }

@@ -10,23 +10,23 @@
 
 <body>
     <center>
-        <h3>Data Tabel Transaksi</h3>
+        <h3>Data Tabel barang</h3>
         <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Nama Produk</th>
+                <th>Nama Barang</th>
                 <th>Nama Pembeli</th>
                 <th>Jumlah</th>
                 <th>Tanggal</th>
             </tr>
             @php $id = 1; @endphp
-            @foreach ($transaksi as $data)
+            @foreach ($data as $transaksi)
                 <tr>
                     <td>{{ $id++ }} </td>
-                    <td>{{ $data->barang2s->id }} </td>
-                    <td>{{ $data->pembeli }} </td>
-                    <td>{{ $data->jumlah }} </td>
-                    <td>{{ $data->tanggal }} </td>
+                    <td>{{ $transaksi->barang->nama_barang }} </td>
+                    <td>{{ $transaksi->pembeli->nama_pembeli }}</td>
+                    <td>{{ $transaksi->jumlah }}</td>
+                    <td>{{ $transaksi->tanggal }}</td>
                 </tr>
             @endforeach
         </table>

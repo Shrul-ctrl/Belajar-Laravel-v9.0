@@ -13,7 +13,7 @@ class Merek extends Model
     public $timestamps = true;
 
     public function produk(){
-        return $this->hasOne(Produk::class);
+        return $this->hasMany(Produk::class);
     }
 
 }

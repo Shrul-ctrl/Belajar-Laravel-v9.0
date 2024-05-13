@@ -2,14 +2,14 @@
 
 use App\Models\Post;
 use App\Models\Siswa;
-use App\Models\Barang;
 use App\Models\Pengguna;
 use App\Models\Telepon;
 use App\Models\Merek;
 use App\Models\Produk;
-use App\Models\Transaksi;
-use App\Models\Barang2;
+use App\Models\Barang;
 use App\Models\Pembeli;
+use App\Models\Transaksi;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('welcome');
 });
 
@@ -35,11 +35,6 @@ Route::get('/post', function () {
 Route::get('/siswa', function () {
     $siswa = Siswa::all();
    return view('tampil_siswa', compact('siswa'));
-});  
-
-Route::get('/barang', function () {
-    $barang = Barang::all();
-   return view('tampil_barang', compact('barang'));
 });  
 
 Route::get('/pengguna', function () {
@@ -62,20 +57,33 @@ Route::get('/produk', function () {
    return view('tampil_produk', compact('produk'));
 });
 
-Route::get('/transaksi', function () {
-    $transaksi = Transaksi::all();
-   return view('tampil_transaksi', compact('transaksi'));
-});
-
-Route::get('/barang2', function () {
-    $barang2s = Barang2::all();
-   return view('tampil_barang2', compact('barang2s'));
+Route::get('/barang', function () {
+    $data = Barang::all();
+   return view('tampil_barang', compact('data'));
 });
 
 Route::get('/pembeli', function () {
-    $pembeli = Pembeli::all();
-   return view('tampil_pembeli', compact('pembeli'));
+    $data = Pembeli::all();
+   return view('tampil_pembeli', compact('data'));
 });
+
+Route::get('/transaksi', function () {
+    $data = Transaksi::all();
+   return view('tampil_transaksi', compact('data'));
+});
+
+Route::get('/template', function () {
+    $posts = Post::all();
+   return view('template', compact('posts'));
+});
+
+Route::get('/template2', function () {
+    $produk = Produk::all();
+   return view('template2', compact('produk'));
+});
+
+
+
 // $siswa = Siswa::where('nama', 'like', '%ipin%')->get(); 
 
 // $post = new Siswa;

@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['id','nama','jumlah'];
+    protected $fillable = ['id', 'nama_barang', 'harga', 'stok'];
     public $timestamps = true;
+
+    public function transaksi()
+    {   
+        return $this->hasMany(Transaksi::class);
+    } 
+
+
 }

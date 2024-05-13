@@ -17,11 +17,11 @@ class ProduksTableSeeder extends Seeder
     {
         $produks = [
             ['nama_produk' => 'iphone 11 pro max','jumlah' => '15', 'tanggal_produksi' => '20-08-10', 'id_merek'=> 1],
-            ['nama_produk' => 'iphone 14 pro',    'jumlah' => '15', 'tanggal_produksi' => '20-08-10', 'id_merek'=> 2],
-            ['nama_produk' => 'samsung flip',     'jumlah' => '10', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 3],
-            ['nama_produk' => 'samsung rog',      'jumlah' => '30', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 4],
-            ['nama_produk' => 'vivo max',         'jumlah' => '30', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 5],
-            ['nama_produk' => 'vivo',             'jumlah' => '10', 'tanggal_produksi' => '09-08-10', 'id_merek'=> 6]
+            ['nama_produk' => 'iphone 14 pro',    'jumlah' => '15', 'tanggal_produksi' => '20-08-10', 'id_merek'=> 1],
+            ['nama_produk' => 'samsung flip',     'jumlah' => '10', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 2],
+            ['nama_produk' => 'samsung rog',      'jumlah' => '30', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 2],
+            ['nama_produk' => 'vivo max',         'jumlah' => '30', 'tanggal_produksi' => '19-08-10', 'id_merek'=> 3],
+            ['nama_produk' => 'vivo',             'jumlah' => '10', 'tanggal_produksi' => '09-08-10', 'id_merek'=> 3]
         ];
         // masukkan data ke database
         DB::table('produks')->insert($produks);
