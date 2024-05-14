@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $data->title }}</h5>
                                 <p class="card-text">{{ $data->content }}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href= "posts/{{ $data->id }}" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>

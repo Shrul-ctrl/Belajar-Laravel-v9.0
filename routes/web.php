@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\MerekController;
+
+
 use App\Models\Post;
 use App\Models\Siswa;
 use App\Models\Pengguna;
@@ -9,6 +14,7 @@ use App\Models\Produk;
 use App\Models\Barang;
 use App\Models\Pembeli;
 use App\Models\Transaksi;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/login', function () {
+Route::get('/about', function () {
     return view('welcome');
 });
 
@@ -72,15 +78,15 @@ Route::get('/transaksi', function () {
    return view('tampil_transaksi', compact('data'));
 });
 
-Route::get('/template', function () {
-    $posts = Post::all();
-   return view('template', compact('posts'));
-});
+// Comteroller Post
+Route::get('posts',[PostController::class,'menampilkan']);
+Route::get('posts/{id}',[PostController::class,'show']);
 
-Route::get('/template2', function () {
-    $produk = Produk::all();
-   return view('template2', compact('produk'));
-});
+Route::get('produks',[ProdukController::class,'menampilkan']);
+Route::get('produks/{id}',[ProdukController::class,'show']);
+
+Route::get('mereks',[MerekController::class,'menampilkan']);
+Route::get('mereks/{id}',[MerekController::class,'show']);
 
 
 
@@ -95,5 +101,4 @@ Route::get('/template2', function () {
 // $post->email = "uspe@gmail.com";
 // $post->save();
 // return $post;
-
 

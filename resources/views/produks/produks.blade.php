@@ -20,10 +20,10 @@
     <div class="section">
         <div class="container mt-5">
             <div class="row d-flex justify-content-center">
-                <h3>Table Produk</h3>
+                <h3>List Produk</h3>
             </div>
             <div class="row mt-3">
-                @foreach ($produk as $data)
+                @foreach ($produks as $data)
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdou7kJlPlxxt7tdrLaGDdMklTDQp1rdwysg&s" class="card-img-top" alt="...">
@@ -32,7 +32,7 @@
                                 <p class="card-text">{{ $data->jumlah }}</p>
                                 <p class="card-text">{{ $data->tanggal_produksi }}</p>
                                 <p class="card-text">{{ $data->merek->nama_merek}}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="produks/{{ $data->id }}" class="btn btn-primary">Go somewhere</a>
                             </div>
                         </div>
                     </div>
