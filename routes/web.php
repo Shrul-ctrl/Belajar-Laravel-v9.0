@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\MerekController;
@@ -29,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/about', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -89,6 +90,38 @@ Route::get('mereks',[MerekController::class,'menampilkan']);
 Route::get('mereks/{id}',[MerekController::class,'show']);
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('brand', BrandController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // $siswa = Siswa::where('nama', 'like', '%ipin%')->get(); 
 
@@ -101,4 +134,3 @@ Route::get('mereks/{id}',[MerekController::class,'show']);
 // $post->email = "uspe@gmail.com";
 // $post->save();
 // return $post;
-
