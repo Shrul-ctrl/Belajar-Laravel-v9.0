@@ -33,8 +33,6 @@
                                 blanditiis quod at vitae aspernatur, commodi
                                 molestias labore repellat ad culpa. Ullam voluptatem natus dolorem soluta.</p>
                             <hr>
-                            
-                            
                         </div>
                     </div>
                 </div>
