@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -7,16 +8,19 @@
                 <div class="card">
                     <div class="card-header">Data Product</div>
 
-                    <div class="card-body">
+                    <div class="card-body shadow-lg">
                         @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
                             </div>
                         @endif
 
-                        <table class="table">
+                        <table class="table table-striped table-hover">
                             <thead>
-                                <a href="{{ route('product.create') }}" class="btn btn-primary">Add Data</a>
+                                <div class="justify-content-md-start mt-1">
+                                    <a href="{{ route('product.create') }}" class="btn btn-primary">Add Data  <i class="fa-solid fa-plus"></i></i></a>
+                                </div>
+                                
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Name Product</th>
@@ -44,9 +48,9 @@
                                             <form action="{{ route('product.destroy', $data->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{ route('product.edit', $data->id) }}"class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('product.show', $data->id) }}"class="btn btn-success">Show</a>
-                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin??')">Delete</button>
+                                                <a href="{{ route('product.edit', $data->id) }}"class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{ route('product.show', $data->id) }}"class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin??')"><i class="fa-solid fa-trash"></i></button>
                                         </td>
                                         </form>
                                     </tr>

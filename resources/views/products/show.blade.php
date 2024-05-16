@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Show Data Product</div>
-                    <div class="card-body">
+                    <div class="card-body shadow-lg">
                         <form action="" method="POST">
                             <div class="mb-3">
                               <label class="form-label">Name Product</label>

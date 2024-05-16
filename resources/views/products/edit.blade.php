@@ -6,8 +6,9 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Edit Data Product</div>
-                    <div class="card-body">
-                        <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data" >
+                    <div class="card-body shadow-lg">
+                        <form action="{{ route('product.update', $product->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -39,8 +40,10 @@
                                 <img src="{{ asset('images/product/' . $product->cover) }}" width="100" alt="">
                                 <input type="file" class="form-control" name="cover">
                             </div>
-                            <a href="{{ url('product') }}" class="btn btn-primary">Back</a>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <div class="vstack gap-2 col-md-5 mx-auto">
+                                <button type="sumbit" class="btn btn-primary">Save changes</button>
+                                <a href="{{ url('product') }}" class="btn btn-outline-primary">Cancel</a>
+                            </div>
 
                         </form>
                     </div>

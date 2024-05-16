@@ -26,13 +26,13 @@
                 @foreach ($produks as $data)
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdou7kJlPlxxt7tdrLaGDdMklTDQp1rdwysg&s" class="card-img-top" alt="...">
+                            <img src="{{ asset('images/product/' . $data->cover) }}" width="100" alt=""
+                                class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $data->nama_produk }} </h5>
-                                <p class="card-text">{{ $data->jumlah }}</p>
-                                <p class="card-text">{{ $data->tanggal_produksi }}</p>
-                                <p class="card-text">{{ $data->merek->nama_merek}}</p>
-                                <a href="produks/{{ $data->id }}" class="btn btn-primary">Go somewhere</a>
+                                <h5 class="card-title">{{ $data->name_product }} </h5>
+                                <p class="card-text">{{ $data->price }}</p>
+                                <p class="card-text">{{ $data->description }}</p>
+                                <a href="produks/{{ $data->id }}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    
+
     {{-- End Content --}}
 
     {{-- Footer --}}
