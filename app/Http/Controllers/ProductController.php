@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\Product;
 
-class BrandController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brand = Brand::all();
-        return view('brands.index', compact('brand'));
+        $product = Product::all();
+        return view('products.index', compact('product'));
     }
 
     /**
@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('brands.create');
+        return view('products.create');
     }
 
     /**
@@ -36,10 +36,13 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $brand = new Brand;
-        $brand->name_brand = $request->name_brand;
-        $brand->save();
-        return redirect()->route('brand.index');
+        $product = new Product;
+        $product->name_product = $request->name_product;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->id_brand   = $request->id_brand ;
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -50,8 +53,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        $brand = Brand::findOrFail($id);
-        return view('brands.show', compact('brand'));
+        $product = Product::findOrFail($id);
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -62,8 +65,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        $brand = Brand::findOrFail($id);
-        return view('brands.edit', compact('brand'));
+        $product = Product::findOrFail($id);
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -75,10 +78,13 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $brand = Brand::findOrFail($id);
-        $brand->name_brand = $request->name_brand;
-        $brand->save();
-        return redirect()->route('brand.index');
+        $product = Product::findOrFail($id);
+        $product->name_product = $request->name_product;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        $product->id_brand = $request->id_brand;
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -89,8 +95,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        $brand = Brand::findOrFail($id);
-        $brand->delete();
-        return redirect()->route('brand.index');
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }

@@ -12,7 +12,7 @@
                               <label class="form-label">Name Brand</label>
                               <input type="text" class="form-control" name="name_brand" value="{{$brand->name_brand}}" disabled>    
                             </div>
-                            <a href="{{url('brand')}}" class="btn btn-primary">back</a>
+                            <a href="{{url('brand')}}" class="btn btn-primary">Back</a>
                           </form>
                     </div>
                 </div>

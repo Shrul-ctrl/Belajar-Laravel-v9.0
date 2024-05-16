@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\MerekController;
+use App\Http\Controllers\ProductController;
 
 
 use App\Models\Post;
@@ -96,6 +97,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('brand', BrandController::class);
+
+Route::resource('product',Productcontroller::class);
 
 
 

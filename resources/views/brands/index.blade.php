@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <table class="table">
                             <thead>
-                                <a href="{{ route('brand.create')}}" class="btn btn-primary">Add Data</a>
+                                <a href="{{ route('brand.create') }}" class="btn btn-primary">Add Data</a>
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Name Brand</th>
@@ -23,17 +23,21 @@
                                     <tr>
                                         <th scope="row">{{ $id++ }}</th>
                                         <td>{{ $data->name_brand }}</td>
-                                        <td>
-                                            <a href="" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('brand.show', $data->id)}}" class="btn btn-success">Show</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
-                                        </td>
+                                        <form action="{{ route('brand.destroy', $data->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <td>
+                                                <a href="{{ route('brand.edit', $data->id) }}"class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('brand.show', $data->id) }}"class="btn btn-success">Show</a>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </form>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div>      
             </div>
         </div>
     </div>
