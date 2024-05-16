@@ -8,6 +8,12 @@
                     <div class="card-header">Data Product</div>
 
                     <div class="card-body">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <table class="table">
                             <thead>
                                 <a href="{{ route('product.create') }}" class="btn btn-primary">Add Data</a>
@@ -17,6 +23,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Name Brand</th>
+                                    <th scope="col">Cover</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -28,14 +35,18 @@
                                         <td>{{ $data->name_product }}</td>
                                         <td>{{ $data->price }}</td>
                                         <td>{{ $data->description }}</td>
-                                        <td>{{ $data->id_brand }}</td>
-                                        <form action="{{ route('product.destroy', $data->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
+                                        <td>{{ $data->brand->name_brand }}</td>
                                         <td>
-                                            <a href="{{ route('product.edit', $data->id) }}"class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('product.show', $data->id) }}"class="btn btn-success">Show</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <img src="{{ asset('images/product/' . $data->cover) }}" width="100"
+                                                alt="">
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('product.destroy', $data->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="{{ route('product.edit', $data->id) }}"class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('product.show', $data->id) }}"class="btn btn-success">Show</a>
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin??')">Delete</button>
                                         </td>
                                         </form>
                                     </tr>

@@ -24,6 +24,10 @@
                               <label class="form-label">Name Product</label>
                               <input type="text" class="form-control" name="name_product" value="{{$product->brand->name_brand}}" disabled>    
                             </div>
+                             {{-- <div class="mb-3">
+                              <label class="form-label">Cover</label>
+                              <input type="text" class="form-control" name="cover" value="{{$product->cover}}" disabled>    
+                            </div> --}}
                             <a href="{{url('product')}}" class="btn btn-primary">Back</a>
                           </form>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -12,6 +13,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+    
     public function index()
     {
         $product = Product::all();
@@ -25,7 +32,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $brand = Product::all();
+        $brand = Brand::all();
+        return view('products.create', compact('brand'));
     }
 
     /**
@@ -41,8 +50,16 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->description = $request->description;
         $product->id_brand   = $request->id_brand ;
+
+        // update img
+        if ($request->hasFile('cover')) {
+            $img = $request->file('cover');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img-> move('images/product', $name);
+            $product->cover = $name;
+        }
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index') ->with('success','Data berhasil ditambahkan');
     }
 
     /**
@@ -66,7 +83,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
+        $brand = Brand::all();
+        return view('products.edit', compact('product','brand'));
     }
 
     /**
@@ -83,8 +101,18 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->description = $request->description;
         $product->id_brand = $request->id_brand;
+
+        // delete img
+        if ($request->hasFile('cover')) {
+            $product ->deleteImage();
+            $img = $request->file('cover');
+            $name = rand(1000, 9999) . $img->getClientOriginalName();
+            $img->move('images/product', $name);
+            $product->cover = $name;
+        }
+
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -97,6 +125,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Data berhasil dihapus');
     }
 }
