@@ -101,6 +101,9 @@ Route::resource('brand', BrandController::class);
 Route::resource('product',Productcontroller::class);
 
 
+// Route::resource('product',Productcontroller::class);
+
+
 
 
 
